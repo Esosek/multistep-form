@@ -12,6 +12,6 @@
     name={id}
     {id}
     {placeholder}
-    class="block py-2 px-4 w-full border-[1px] rounded-md sm:mt-1"
+    class="block py-2 px-4 w-full border-[1px] rounded-md outline-none sm:mt-1 focus:border-purplish-blue"
   />
 </div>

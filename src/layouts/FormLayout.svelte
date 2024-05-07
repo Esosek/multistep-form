@@ -17,7 +17,7 @@
         </li>
       {/each}
     </ul>
-    <div class="bg-white rounded-lg w-[90%] mx-4 p-8 shadow-lg">
+    <div class="bg-white rounded-lg w-[90%] mx-4 p-6 shadow-lg">
       <slot />
     </div>
   </main>

@@ -4,7 +4,7 @@
 
 <form>
   <h1 class="text-2xl font-bold my-2">Personal info</h1>
-  <p class="text-cool-gray">
+  <p class="text-cool-gray mb-6">
     Please provide your name, email address, and phne number.
   </p>
   <FormInput

@@ -1,5 +1,5 @@
 <script>
-  export let stepCount = 1;
+  export let steps = ['step 1', 'step 2'];
   export let activeStep = 0;
 </script>
 
@@ -10,16 +10,20 @@
     class="flex flex-col items-center w-full max-w-5xl sm:bg-white sm:grid sm:grid-cols-[auto_1fr] sm:rounded-xl sm:shadow-lg sm:p-4"
   >
     <ul
-      class="flex gap-4 my-8 sm:flex-col sm:min-w-[274px] sm:min-h-[568px] sm:my-0"
+      class="flex gap-4 my-8 sm:flex-col sm:min-w-[274px] sm:min-h-[568px] sm:my-0 sm:p-6 sm:gap-6"
     >
-      {#each { length: stepCount } as _, index}
-        <li>
+      {#each steps as _, index}
+        <li class="sm:flex sm:gap-4">
           <button
             type="button"
             class="size-10 aspect-square rounded-full border-[1px] text-white font-medium aria-[current='true']:bg-light-blue aria-[current='true']:text-inherit"
             aria-current={index === activeStep ? 'true' : ''}
-            >{index + 1}</button
-          >
+            >{index + 1}
+          </button>
+          <div class="hidden sm:grid uppercase text-sm">
+            <p class="text-xs text-cool-gray">Step {index + 1}</p>
+            <p class="tracking-wider text-white">{steps[index]}</p>
+          </div>
         </li>
       {/each}
     </ul>

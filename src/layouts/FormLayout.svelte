@@ -14,12 +14,13 @@
     >
       {#each steps as _, index}
         <li class="sm:flex sm:gap-4">
-          <button
+          <div
             type="button"
-            class="size-10 aspect-square rounded-full border-[1px] text-white font-medium aria-[current='true']:bg-light-blue aria-[current='true']:text-inherit"
+            class="flex items-center justify-center size-10 rounded-full border-[1px] text-white font-medium aria-[current='true']:bg-light-blue aria-[current='true']:text-inherit"
             aria-current={index === activeStep ? 'true' : ''}
-            >{index + 1}
-          </button>
+          >
+            {index + 1}
+          </div>
           <div class="hidden sm:grid uppercase text-sm">
             <p class="text-xs text-cool-gray">Step {index + 1}</p>
             <p class="tracking-wider text-white">{steps[index]}</p>

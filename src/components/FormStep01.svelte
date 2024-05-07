@@ -2,8 +2,23 @@
   import FormInput from './FormInput.svelte';
   import FormButton from './FormButton.svelte';
 
-  function submitForm() {
+  let formErrors = {
+    name: false,
+    email: false,
+    phone: false,
+  };
+
+  function submitForm(e) {
+    e.preventDefault();
     console.log('form submitted!');
+    if (isFormValid()) {
+      //TODO: Move to next step
+    }
+  }
+
+  function isFormValid() {
+    //TODO: Form validation
+    return true;
   }
 </script>
 
@@ -17,18 +32,21 @@
     label="Name"
     placeholder="e.g. Thomas A. Anderson"
     type="text"
+    hasError={formErrors.name}
   />
   <FormInput
     id="email"
     label="Email Address"
     placeholder="e.g. neo@sion.mx"
     type="email"
+    hasError={formErrors.email}
   />
   <FormInput
     id="phone"
     label="Phone Number"
     placeholder="e.g. +1 234 567 890"
     type="phone"
+    hasError={formErrors.phone}
   />
   <FormButton />
 </form>

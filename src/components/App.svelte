@@ -2,6 +2,6 @@
   import FormLayout from '../layouts/FormLayout.svelte';
 </script>
 
-<FormLayout activeStep={0}>
+<FormLayout stepCount={4} activeStep={0}>
   <h1>Personal info</h1>
 </FormLayout>

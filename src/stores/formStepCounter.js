@@ -1,15 +1,15 @@
 import { writable } from 'svelte/store';
 
-const currentStep = writable(0);
+const currentStep = writable(1);
 
 function next() {
-  currentStep.update((prevStep) => prevStep++);
+  currentStep.update((prevStep) => prevStep + 1);
 }
 
 function back() {
   currentStep.update((prevStep) => {
     if (prevStep > 0) {
-      prevStep++;
+      return prevStep - 1;
     }
   });
 }

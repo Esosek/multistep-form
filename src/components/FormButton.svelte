@@ -1,6 +1,6 @@
 <script>
   export let label = 'Next Step';
-  export let type = 'submit';
+  export let type = 'button';
   export let isPrimary = true;
   export let onPress = () => {};
 

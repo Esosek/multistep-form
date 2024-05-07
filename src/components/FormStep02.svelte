@@ -51,7 +51,12 @@
     hasError={formErrors.phone}
     flexGrow
   />
-  <FormNavigation justifyContent="justify-end">
-    <FormButton type="submit" />
+  <FormNavigation>
+    <FormButton
+      label="Go Back"
+      isPrimary={false}
+      onPress={() => formStepCounter.back()}
+    />
+    <FormButton />
   </FormNavigation>
 </form>

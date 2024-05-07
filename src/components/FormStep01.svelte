@@ -1,8 +1,13 @@
 <script>
   import FormInput from './FormInput.svelte';
+  import FormButton from './FormButton.svelte';
+
+  function submitForm() {
+    console.log('form submitted!');
+  }
 </script>
 
-<form>
+<form on:submit={submitForm} class="sm:flex sm:flex-col sm:h-full">
   <h1 class="text-2xl font-bold my-2">Personal info</h1>
   <p class="text-cool-gray mb-6">
     Please provide your name, email address, and phne number.
@@ -25,4 +30,5 @@
     placeholder="e.g. +1 234 567 890"
     type="phone"
   />
+  <FormButton />
 </form>

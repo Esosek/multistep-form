@@ -1,5 +1,6 @@
 <script>
   import FormInput from './FormInput.svelte';
+  import FormNavigation from './FormNavigation.svelte';
   import FormButton from './FormButton.svelte';
 
   let formErrors = {
@@ -45,8 +46,11 @@
     id="phone"
     label="Phone Number"
     placeholder="e.g. +1 234 567 890"
-    type="phone"
+    type="tel"
     hasError={formErrors.phone}
+    flexGrow
   />
-  <FormButton />
+  <FormNavigation justifyContent="justify-end">
+    <FormButton />
+  </FormNavigation>
 </form>

@@ -3,9 +3,15 @@
   export let activeStep = 0;
 </script>
 
-<body class="text-marine-blue bg-magnolia min-h-lvh">
-  <main class="flex flex-col items-center">
-    <ul class="flex gap-4 my-8">
+<body
+  class="text-marine-blue bg-magnolia min-h-lvh sm:flex sm:justify-center sm:items-center"
+>
+  <main
+    class="flex flex-col items-center w-full max-w-5xl sm:bg-white sm:grid sm:grid-cols-[auto_1fr] sm:rounded-xl sm:shadow-lg sm:p-4"
+  >
+    <ul
+      class="flex gap-4 my-8 sm:flex-col sm:min-w-[274px] sm:min-h-[568px] sm:my-0"
+    >
       {#each { length: stepCount } as _, index}
         <li>
           <button
@@ -17,17 +23,20 @@
         </li>
       {/each}
     </ul>
-    <div class="bg-white rounded-lg w-[90%] mx-4 p-6 shadow-lg">
+    <div
+      class="bg-white rounded-lg w-[90%] mx-4 p-6 shadow-lg sm:flex sm:flex-col sm:justify-between sm:px-20 sm:bg-transparent sm:shadow-none sm:h-full sm:w-auto sm:m-0"
+    >
       <slot />
+      <div
+        class="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1 )] sm:static sm:shadow-none sm:bg-transparent sm:p-0"
+      >
+        <button
+          class="block bg-marine-blue text-white ml-auto py-2 px-4 rounded-md sm:px-6"
+          >Next Step</button
+        >
+      </div>
     </div>
   </main>
-  <div
-    class="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1 )]"
-  >
-    <button class="block bg-marine-blue text-white ml-auto py-2 px-4 rounded-md"
-      >Next Step</button
-    >
-  </div>
 </body>
 
 <style>
@@ -36,9 +45,13 @@
     background-repeat: no-repeat;
   }
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 640px) {
     main {
+      background-image: none;
+    }
+    ul {
       background-image: url('/assets/images/bg-sidebar-desktop.svg');
+      background-repeat: no-repeat;
     }
   }
 </style>

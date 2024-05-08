@@ -30,7 +30,7 @@
       {/each}
     </ul>
     <div
-      class="bg-white rounded-lg w-[90%] mx-4 p-6 shadow-lg sm:px-20 sm:bg-transparent sm:shadow-none sm:h-full sm:w-auto sm:m-0"
+      class="content-wrap bg-white rounded-lg w-[90%] mx-4 p-6 shadow-lg sm:px-20 sm:bg-transparent sm:shadow-none sm:h-full sm:w-auto sm:m-0"
     >
       <slot />
     </div>
@@ -41,6 +41,11 @@
   main {
     background-image: url('/assets/images/bg-sidebar-mobile.svg');
     background-repeat: no-repeat;
+  }
+
+  /* Move navigation buttons bottom */
+  :global(.content-wrap :only-child > *:nth-last-child(2)) {
+    flex-grow: 1;
   }
 
   @media only screen and (min-width: 640px) {

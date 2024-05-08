@@ -3,6 +3,7 @@
   import FormNavigation from './FormNavigation.svelte';
   import FormButton from './FormButton.svelte';
   import formStepCounter from '../stores/formStepCounter';
+  import FormHeader from './FormHeader.svelte';
 
   let formErrors = {
     name: false,
@@ -25,10 +26,10 @@
 </script>
 
 <form on:submit={submitForm} class="sm:flex sm:flex-col sm:h-full">
-  <h1 class="text-2xl font-bold my-2">Personal info</h1>
-  <p class="text-cool-gray mb-6">
-    Please provide your name, email address, and phne number.
-  </p>
+  <FormHeader
+    title="Personal info"
+    subtext="Please provide your name, email address, and phne number."
+  />
   <FormInput
     id="username"
     label="Name"
@@ -49,7 +50,6 @@
     placeholder="e.g. +1 234 567 890"
     type="tel"
     hasError={formErrors.phone}
-    flexGrow
   />
   <FormNavigation justifyContent="justify-end">
     <FormButton type="submit" />

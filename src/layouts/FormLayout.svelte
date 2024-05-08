@@ -44,7 +44,7 @@
   }
 
   /* Move navigation buttons bottom */
-  :global(.content-wrap :only-child > *:nth-last-child(2)) {
+  :global(.content-wrap > :only-child > *:nth-last-child(2)) {
     flex-grow: 1;
   }
 

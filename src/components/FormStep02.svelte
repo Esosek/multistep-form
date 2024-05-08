@@ -35,7 +35,7 @@
     title="Select your plan"
     subtext="You have the option of monthly of yearly billing."
   />
-  <div class="grid gap-3 sm:grid-cols-3">
+  <div class="grid gap-3 my-6 sm:grid-cols-3">
     {#each plans as plan, index}
       <ButtonSelect
         label={plan.label}
@@ -47,7 +47,24 @@
     {/each}
   </div>
 
-  <div id="toggle"></div>
+  <div>
+    <div
+      class="flex justify-center items-center gap-6 bg-magnolia py-3 rounded-lg"
+    >
+      <p>Monthly</p>
+      <input type="checkbox" value="" class="sr-only peer" />
+
+      <label class="flex items-center cursor-pointer">
+        <input type="checkbox" value="" class="sr-only peer" />
+        <div
+          class="relative w-12 h-6 bg-marine-blue rounded-full peer peer-checked:after:translate-x-6 rtl:peer-checked:after:-translate-x-6 after:content-[''] after:absolute after:top-1 after:start-1 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all"
+        ></div>
+      </label>
+
+      <p class="text-cool-gray">Yearly</p>
+    </div>
+  </div>
+
   <FormNavigation>
     <FormButton
       label="Go Back"

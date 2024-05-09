@@ -3,6 +3,7 @@
   export let label = 'Label';
   export let subtext;
   export let isSelected = false;
+  export let showFreeOffer = false;
   export let onPress = () => {};
 </script>
 
@@ -18,5 +19,8 @@
   <div class="flex flex-col text-left">
     <p class="font-bold">{label}</p>
     <p class="text-sm text-cool-gray">{subtext}</p>
+    {#if showFreeOffer}
+      <p class="text-xs mt-1">2 months free</p>
+    {/if}
   </div>
 </button>

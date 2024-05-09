@@ -4,29 +4,38 @@
   import FormButton from './FormButton.svelte';
   import formStepCounter from '../stores/formStepCounter';
   import ButtonSelect from './ButtonSelect.svelte';
+  import Toggle from './Toggle.svelte';
 
   const plans = [
     {
       label: 'Arcade',
-      price: '$9/mo',
+      monthlyPrice: '$9/mo',
+      yearlyPrice: '$90/yr',
       icon: '/assets/images/icon-arcade.svg',
     },
     {
       label: 'Advanced',
-      price: '$12/mo',
+      monthlyPrice: '$12/mo',
+      yearlyPrice: '$120/yr',
       icon: '/assets/images/icon-advanced.svg',
     },
     {
       label: 'Pro',
-      price: '$15/mo',
+      monthlyPrice: '$15/mo',
+      yearlyPrice: '$150/yr',
       icon: '/assets/images/icon-pro.svg',
     },
   ];
 
   let selectedPlanIndex = 0;
+  let isYearly = false;
 
   function selectPlan(index) {
     selectedPlanIndex = index;
+  }
+
+  function togglePlan(event) {
+    isYearly = event.target.checked;
   }
 </script>
 
@@ -40,9 +49,10 @@
       <li>
         <ButtonSelect
           label={plan.label}
-          subtext={plan.price}
+          subtext={isYearly ? plan.yearlyPrice : plan.monthlyPrice}
           iconPath={plan.icon}
           isSelected={index === selectedPlanIndex}
+          showFreeOffer={isYearly}
           onPress={() => selectPlan(index)}
         />
       </li>
@@ -53,17 +63,9 @@
     <div
       class="flex justify-center items-center gap-6 bg-magnolia py-3 rounded-lg"
     >
-      <p>Monthly</p>
-      <input type="checkbox" value="" class="sr-only peer" />
-
-      <label class="flex items-center cursor-pointer">
-        <input type="checkbox" value="" class="sr-only peer" />
-        <div
-          class="relative w-12 h-6 bg-marine-blue rounded-full peer peer-checked:after:translate-x-6 rtl:peer-checked:after:-translate-x-6 after:content-[''] after:absolute after:top-1 after:start-1 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all"
-        ></div>
-      </label>
-
-      <p class="text-cool-gray">Yearly</p>
+      <p class={isYearly ? 'text-cool-gray' : ''}>Monthly</p>
+      <Toggle onToggle={togglePlan} />
+      <p class={isYearly ? '' : 'text-cool-gray'}>Yearly</p>
     </div>
   </div>
 

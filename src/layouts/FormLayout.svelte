@@ -1,11 +1,24 @@
 <script>
+  import { onMount } from 'svelte';
   import formStepCounter from '../stores/formStepCounter';
 
   export let steps = ['step 1', 'step 2'];
+
+  let footer;
+  let main;
+
+  onMount(() => {
+    footer = document.getElementById('form-navigation');
+    main = document.getElementsByTagName('main')[0];
+
+    if (main && footer && window.screen.width <= 640) {
+      main.style.marginBottom = `calc(${footer.clientHeight}px + 1rem)`;
+    }
+  });
 </script>
 
 <body
-  class="text-marine-blue bg-magnolia min-h-lvh sm:flex sm:justify-center sm:items-center"
+  class="text-marine-blue bg-magnolia min-h-lvh flex justify-center sm:items-center"
 >
   <main
     class="flex flex-col items-center w-full max-w-5xl sm:bg-white sm:grid sm:grid-cols-[min(274px_,35%)_2fr] sm:rounded-xl sm:shadow-lg sm:mx-4 sm:p-4"

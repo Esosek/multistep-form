@@ -21,7 +21,7 @@
     {#each Object.entries(plans) as [key, value]}
       <li>
         <ButtonSelect
-          label={value.label}
+          label={key}
           subtext={$formData.isYearly ? value.yearlyPrice : value.monthlyPrice}
           iconPath={value.icon}
           isSelected={key === $formData.selectedPlan}

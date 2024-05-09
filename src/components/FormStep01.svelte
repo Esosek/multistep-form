@@ -28,7 +28,7 @@
 <form on:submit={submitForm} class="sm:flex sm:flex-col sm:h-full">
   <FormHeader
     title="Personal info"
-    subtext="Please provide your name, email address, and phne number."
+    subtext="Please provide your name, email address, and phone number."
   />
   <FormInput
     id="username"

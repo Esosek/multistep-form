@@ -35,17 +35,19 @@
     title="Select your plan"
     subtext="You have the option of monthly of yearly billing."
   />
-  <div class="grid gap-3 my-6 sm:grid-cols-3">
+  <ul class="grid gap-3 my-6 lg:grid-cols-3">
     {#each plans as plan, index}
-      <ButtonSelect
-        label={plan.label}
-        subtext={plan.price}
-        iconPath={plan.icon}
-        isSelected={index === selectedPlanIndex}
-        onPress={() => selectPlan(index)}
-      />
+      <li>
+        <ButtonSelect
+          label={plan.label}
+          subtext={plan.price}
+          iconPath={plan.icon}
+          isSelected={index === selectedPlanIndex}
+          onPress={() => selectPlan(index)}
+        />
+      </li>
     {/each}
-  </div>
+  </ul>
 
   <div>
     <div

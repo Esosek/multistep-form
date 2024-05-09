@@ -15,7 +15,7 @@
     e.preventDefault();
     console.log('form submitted!');
     if (isFormValid()) {
-      formData.next();
+      formData.nextStep();
     }
   }
 

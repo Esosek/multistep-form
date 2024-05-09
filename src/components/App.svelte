@@ -8,9 +8,9 @@
 </script>
 
 <FormLayout {steps}>
-  {#if $formData === 0}
+  {#if $formData.currentStep === 0}
     <FormStep01 />
-  {:else if $formData === 1}
+  {:else if $formData.currentStep === 1}
     <FormStep02 />
   {/if}
 </FormLayout>

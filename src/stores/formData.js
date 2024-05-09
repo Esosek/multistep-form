@@ -1,21 +1,25 @@
 import { writable } from 'svelte/store';
 
-const currentStep = writable(1);
+const formData = writable({
+  currentStep: 0,
+  isYearly: false,
+});
 
-function next() {
-  currentStep.update((prevStep) => prevStep + 1);
+function nextStep() {
+  formData.update((prevState) => {
+    return { ...prevState, currentStep: prevState.currentStep + 1 };
+  });
 }
 
-function back() {
-  currentStep.update((prevStep) => {
-    if (prevStep > 0) {
-      return prevStep - 1;
-    }
+function previousStep() {
+  formData.update((prevState) => {
+    const step = prevState.currentStep;
+    return { ...prevState, currentStep: step > 0 ? step - 1 : step };
   });
 }
 
 export default {
-  subscribe: currentStep.subscribe,
-  next,
-  back,
+  subscribe: formData.subscribe,
+  nextStep,
+  previousStep,
 };

@@ -73,7 +73,7 @@
     <FormButton
       label="Go Back"
       isPrimary={false}
-      onPress={() => formData.back()}
+      onPress={() => formData.previousStep()}
     />
     <FormButton />
   </FormNavigation>

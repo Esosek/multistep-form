@@ -31,7 +31,7 @@
           <div
             type="button"
             class="flex items-center justify-center size-10 rounded-full border-[1px] text-white font-medium aria-[current='true']:bg-light-blue aria-[current='true']:text-inherit"
-            aria-current={index === $formData ? 'true' : ''}
+            aria-current={index === $formData.currentStep ? 'true' : ''}
           >
             {index + 1}
           </div>

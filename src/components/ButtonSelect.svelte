@@ -10,7 +10,7 @@
 <button
   on:click={onPress}
   class={`flex items-center gap-4 w-full border-[1px]
-  p-3 rounded-lg lg:flex-col lg:items-start lg:gap-12 ${isSelected ? 'border-purplish-blue bg-magnolia' : 'border-light-gray'}`}
+  p-3 rounded-lg lg:flex-col lg:items-start lg:gap-12 hover:border-purplish-blue transition-colors ${isSelected ? 'border-purplish-blue bg-magnolia' : 'border-light-gray'}`}
 >
   {#if iconPath}
     <img src={iconPath} alt="" />

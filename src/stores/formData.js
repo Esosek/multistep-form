@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 const formData = writable({
-  currentStep: 0,
+  currentStep: 2,
   isYearly: false,
 });
 

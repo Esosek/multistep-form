@@ -5,29 +5,7 @@
   import formData from '../stores/formData';
   import ButtonSelect from './ButtonSelect.svelte';
   import Toggle from './Toggle.svelte';
-
-  const plans = [
-    {
-      label: 'Arcade',
-      monthlyPrice: '$9/mo',
-      yearlyPrice: '$90/yr',
-      icon: '/assets/images/icon-arcade.svg',
-    },
-    {
-      label: 'Advanced',
-      monthlyPrice: '$12/mo',
-      yearlyPrice: '$120/yr',
-      icon: '/assets/images/icon-advanced.svg',
-    },
-    {
-      label: 'Pro',
-      monthlyPrice: '$15/mo',
-      yearlyPrice: '$150/yr',
-      icon: '/assets/images/icon-pro.svg',
-    },
-  ];
-
-  let selectedPlanIndex = 0;
+  import plans from '../data/plans';
 
   function selectPlan(index) {
     selectedPlanIndex = index;
@@ -40,15 +18,15 @@
     subtext="You have the option of monthly of yearly billing."
   />
   <ul class="grid gap-3 my-6 lg:grid-cols-3">
-    {#each plans as plan, index}
+    {#each Object.entries(plans) as [key, value]}
       <li>
         <ButtonSelect
-          label={plan.label}
-          subtext={$formData.isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-          iconPath={plan.icon}
-          isSelected={index === selectedPlanIndex}
+          label={value.label}
+          subtext={$formData.isYearly ? value.yearlyPrice : value.monthlyPrice}
+          iconPath={value.icon}
+          isSelected={key === $formData.selectedPlan}
           showFreeOffer={$formData.isYearly}
-          onPress={() => selectPlan(index)}
+          onPress={() => formData.selectPlan(key)}
         />
       </li>
     {/each}
@@ -68,8 +46,8 @@
     <FormButton
       label="Go Back"
       isPrimary={false}
-      onPress={() => formData.previousStep()}
+      onPress={formData.previousStep}
     />
-    <FormButton />
+    <FormButton onPress={formData.nextStep} />
   </FormNavigation>
 </div>

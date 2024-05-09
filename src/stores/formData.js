@@ -1,7 +1,9 @@
 import { writable } from 'svelte/store';
+import { Plan } from '../data/plans';
 
 const formData = writable({
   currentStep: 2,
+  selectedPlan: Plan.Arcade,
   isYearly: false,
 });
 
@@ -18,6 +20,12 @@ function previousStep() {
   });
 }
 
+function selectPlan(plan) {
+  formData.update((prevState) => {
+    return { ...prevState, selectedPlan: plan };
+  });
+}
+
 function toggleYearly() {
   formData.update((prevState) => {
     return { ...prevState, isYearly: !prevState.isYearly };
@@ -28,5 +36,6 @@ export default {
   subscribe: formData.subscribe,
   nextStep,
   previousStep,
+  selectPlan,
   toggleYearly,
 };

@@ -18,8 +18,15 @@ function previousStep() {
   });
 }
 
+function toggleYearly() {
+  formData.update((prevState) => {
+    return { ...prevState, isYearly: !prevState.isYearly };
+  });
+}
+
 export default {
   subscribe: formData.subscribe,
   nextStep,
   previousStep,
+  toggleYearly,
 };

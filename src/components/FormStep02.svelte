@@ -28,14 +28,9 @@
   ];
 
   let selectedPlanIndex = 0;
-  let isYearly = false;
 
   function selectPlan(index) {
     selectedPlanIndex = index;
-  }
-
-  function togglePlan(event) {
-    isYearly = event.target.checked;
   }
 </script>
 
@@ -49,10 +44,10 @@
       <li>
         <ButtonSelect
           label={plan.label}
-          subtext={isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+          subtext={$formData.isYearly ? plan.yearlyPrice : plan.monthlyPrice}
           iconPath={plan.icon}
           isSelected={index === selectedPlanIndex}
-          showFreeOffer={isYearly}
+          showFreeOffer={$formData.isYearly}
           onPress={() => selectPlan(index)}
         />
       </li>
@@ -63,9 +58,9 @@
     <div
       class="flex justify-center items-center gap-6 bg-magnolia py-3 rounded-lg"
     >
-      <p class={isYearly ? 'text-cool-gray' : ''}>Monthly</p>
-      <Toggle onToggle={togglePlan} />
-      <p class={isYearly ? '' : 'text-cool-gray'}>Yearly</p>
+      <p class={$formData.isYearly ? 'text-cool-gray' : ''}>Monthly</p>
+      <Toggle onToggle={formData.toggleYearly} />
+      <p class={$formData.isYearly ? '' : 'text-cool-gray'}>Yearly</p>
     </div>
   </div>
 

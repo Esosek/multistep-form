@@ -8,10 +8,10 @@
   class="text-marine-blue bg-magnolia min-h-lvh sm:flex sm:justify-center sm:items-center"
 >
   <main
-    class="flex flex-col items-center w-full max-w-5xl sm:bg-white sm:grid sm:grid-cols-[auto_1fr] sm:rounded-xl sm:shadow-lg sm:p-4"
+    class="flex flex-col items-center w-full max-w-5xl sm:bg-white sm:grid sm:grid-cols-[min(274px_,35%)_2fr] sm:rounded-xl sm:shadow-lg sm:mx-4 sm:p-4"
   >
     <ul
-      class="flex gap-4 my-8 sm:flex-col sm:min-w-[274px] sm:min-h-[568px] sm:my-0 sm:p-6 sm:gap-6"
+      class="flex gap-4 my-8 sm:flex-col sm:max-w-[274px] sm:min-h-[568px] sm:rounded-xl sm:my-0 sm:p-6 sm:gap-6"
     >
       {#each steps as _, index}
         <li class="sm:flex sm:gap-4">
@@ -30,7 +30,7 @@
       {/each}
     </ul>
     <div
-      class="content-wrap bg-white rounded-lg w-[90%] mx-4 p-6 shadow-lg sm:px-20 sm:bg-transparent sm:shadow-none sm:h-full sm:w-auto sm:m-0"
+      class="content-wrap bg-white rounded-lg w-[90%] mx-4 p-6 shadow-lg sm:px-10 md:px-20 sm:bg-transparent sm:shadow-none sm:h-full sm:w-auto sm:m-0"
     >
       <slot />
     </div>
@@ -41,6 +41,7 @@
   main {
     background-image: url('/assets/images/bg-sidebar-mobile.svg');
     background-repeat: no-repeat;
+    background-size: contain;
   }
 
   /* Move navigation buttons bottom */

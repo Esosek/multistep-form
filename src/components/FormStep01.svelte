@@ -2,10 +2,10 @@
   import FormInput from './FormInput.svelte';
   import FormNavigation from './FormNavigation.svelte';
   import FormButton from './FormButton.svelte';
-  import formStepCounter from '../stores/formStepCounter';
   import FormHeader from './FormHeader.svelte';
+  import formData from '../stores/formData';
 
-  let formErrors = {
+  const formErrors = {
     name: false,
     email: false,
     phone: false,
@@ -15,7 +15,7 @@
     e.preventDefault();
     console.log('form submitted!');
     if (isFormValid()) {
-      formStepCounter.next();
+      formData.next();
     }
   }
 

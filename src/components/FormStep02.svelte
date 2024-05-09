@@ -2,7 +2,7 @@
   import FormHeader from './FormHeader.svelte';
   import FormNavigation from './FormNavigation.svelte';
   import FormButton from './FormButton.svelte';
-  import formStepCounter from '../stores/formStepCounter';
+  import formData from '../stores/formData';
   import ButtonSelect from './ButtonSelect.svelte';
   import Toggle from './Toggle.svelte';
 
@@ -73,7 +73,7 @@
     <FormButton
       label="Go Back"
       isPrimary={false}
-      onPress={() => formStepCounter.back()}
+      onPress={() => formData.back()}
     />
     <FormButton />
   </FormNavigation>

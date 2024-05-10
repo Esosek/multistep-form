@@ -5,20 +5,19 @@
   export let onChange = () => {};
 </script>
 
-<li
-  class="flex gap-3 border-[1px] rounded-md p-3 lg:gap-6 lg:py-4 lg:px-6 items-center has-[:checked]:border-marine-blue has-[:checked]:bg-purplish-blue/5"
->
-  <input
-    on:change={onChange}
-    type="checkbox"
-    name={title}
-    id={`${title}-checkbox`}
-    class="cursor-pointer accent-purplish-blue size-5"
-  />
+<li class="">
   <label
     for={`${title}-checkbox`}
-    class="flex items-center w-full cursor-pointer"
+    class="flex gap-3 border-[1px] cursor-pointer rounded-md p-3 lg:gap-6 lg:py-4 lg:px-6 items-center hover:border-marine-blue has-[:checked]:border-marine-blue has-[:checked]:bg-purplish-blue/5 transition-colors"
   >
+    <input
+      on:change={onChange}
+      type="checkbox"
+      name={title}
+      id={`${title}-checkbox`}
+      class="cursor-pointer accent-purplish-blue size-5"
+    />
+
     <div>
       <p class="font-medium">{title}</p>
       <p class="text-cool-gray text-sm">{description}</p>

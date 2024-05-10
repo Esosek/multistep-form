@@ -21,7 +21,9 @@
           title={key}
           description={value.description}
           price={$formData.isYearly ? value.yearlyPrice : value.monthlyPrice}
-          onChange={() => {}}
+          onChange={() => {
+            formData.toggleAddon(key);
+          }}
         />
       </li>
     {/each}

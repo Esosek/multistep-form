@@ -5,6 +5,7 @@ const formData = writable({
   currentStep: 2,
   selectedPlan: Plan.Arcade,
   isYearly: false,
+  addons: [],
 });
 
 function nextStep() {
@@ -32,10 +33,26 @@ function toggleYearly() {
   });
 }
 
+function toggleAddon(addon) {
+  formData.update((prevState) => {
+    const updatedAddons = [...prevState.addons];
+    const includesAddon = updatedAddons.includes(addon);
+
+    if (includesAddon) {
+      const addonIndex = updatedAddons.indexOf(addon);
+      updatedAddons.splice(addonIndex, 1);
+    } else {
+      updatedAddons.push(addon);
+    }
+    return { ...prevState, addons: [...updatedAddons] };
+  });
+}
+
 export default {
   subscribe: formData.subscribe,
   nextStep,
   previousStep,
   selectPlan,
   toggleYearly,
+  toggleAddon,
 };

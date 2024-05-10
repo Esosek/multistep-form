@@ -4,6 +4,7 @@
   import FormButton from './FormButton.svelte';
   import formData from '../stores/formData';
   import addOns from '../data/addons';
+  import CheckboxSelect from './CheckboxSelect.svelte';
 
   function selectAddon(addon) {}
 </script>
@@ -13,10 +14,15 @@
     title="Pick add-ons"
     subtext="Add-ons help enhance your gaming experience."
   />
-  <ul class="grid gap-3 my-6 lg:grid-cols-3">
+  <ul class="flex flex-col gap-3 my-6">
     {#each Object.entries(addOns) as [key, value]}
       <li>
-        {key}
+        <CheckboxSelect
+          title={key}
+          description={value.description}
+          price={$formData.isYearly ? value.yearlyPrice : value.monthlyPrice}
+          onChange={() => {}}
+        />
       </li>
     {/each}
   </ul>
@@ -25,8 +31,8 @@
     <FormButton
       label="Go Back"
       isPrimary={false}
-      onPress={() => formData.previousStep()}
+      onPress={formData.previousStep}
     />
-    <FormButton />
+    <FormButton onPress={formData.nextStep} />
   </FormNavigation>
 </div>

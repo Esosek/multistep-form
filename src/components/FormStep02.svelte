@@ -22,7 +22,9 @@
       <li>
         <ButtonSelect
           label={key}
-          subtext={$formData.isYearly ? value.yearlyPrice : value.monthlyPrice}
+          subtext={$formData.isYearly
+            ? `+$${value.yearlyPrice}/yr`
+            : `+$${value.monthlyPrice}/mo`}
           iconPath={value.icon}
           isSelected={key === $formData.selectedPlan}
           showFreeOffer={$formData.isYearly}

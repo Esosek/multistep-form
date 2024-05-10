@@ -11,8 +11,8 @@
 
 <div class="sm:flex sm:flex-col sm:h-full">
   <FormHeader
-    title="Pick add-ons"
-    subtext="Add-ons help enhance your gaming experience."
+    title="Finishing up"
+    subtext="Double-check everything looks OK before confirming."
   />
   <ul class="flex flex-col gap-3 my-6">
     {#each Object.entries(addOns) as [key, value]}
@@ -20,9 +20,7 @@
         <CheckboxSelect
           title={key}
           description={value.description}
-          price={$formData.isYearly
-            ? `+$${value.yearlyPrice}/yr`
-            : `+$${value.monthlyPrice}/mo`}
+          price={$formData.isYearly ? value.yearlyPrice : value.monthlyPrice}
           onChange={() => {
             formData.toggleAddon(key);
           }}
@@ -37,6 +35,6 @@
       isPrimary={false}
       onPress={formData.previousStep}
     />
-    <FormButton onPress={formData.nextStep} />
+    <FormButton label="Confirm" onPress={formData.nextStep} />
   </FormNavigation>
 </div>

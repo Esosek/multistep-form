@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 import { Plan } from '../data/plans';
 
 const formData = writable({
-  currentStep: 2,
+  currentStep: 3,
   selectedPlan: Plan.Arcade,
   isYearly: false,
   addons: [],

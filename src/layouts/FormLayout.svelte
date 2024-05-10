@@ -43,7 +43,7 @@
       {/each}
     </ul>
     <div
-      class="content-wrap bg-white rounded-lg w-[90%] mx-4 p-6 shadow-lg sm:px-10 md:px-20 sm:bg-transparent sm:shadow-none sm:h-full sm:w-auto sm:m-0"
+      class="content-wrap bg-white rounded-lg w-[92%] p-5 shadow-lg sm:px-10 md:px-20 sm:bg-transparent sm:shadow-none sm:h-full sm:w-auto sm:m-0"
     >
       <slot />
     </div>

@@ -10,6 +10,10 @@
 
   let selectedPlanText = `${selectedPlan} (${isYearly ? 'Yearly' : 'Monthly'})`;
   let selectedPlanPrice = `$${isYearly ? `${plans[selectedPlan].yearlyPrice}/yr` : `${plans[selectedPlan].monthlyPrice}/mo`}`;
+
+  function changePlan() {
+    formData.previousStep(2);
+  }
 </script>
 
 <div class="sm:flex sm:flex-col sm:h-full">
@@ -21,7 +25,11 @@
     <li class="flex justify-between items-center font-bold">
       <div class="flex flex-col items-start">
         <p>{selectedPlanText}</p>
-        <button class="underline text-cool-gray font-normal">Change</button>
+        <button
+          on:click={changePlan}
+          class="underline text-cool-gray font-normal hover:text-purplish-blue"
+          >Change</button
+        >
       </div>
       <p>{selectedPlanPrice}</p>
     </li>

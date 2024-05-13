@@ -33,10 +33,13 @@ function nextStep() {
   });
 }
 
-function previousStep() {
+function previousStep(stepCount = 1) {
   formData.update((prevState) => {
     const step = prevState.currentStep;
-    return { ...prevState, currentStep: step > 0 ? step - 1 : step };
+    return {
+      ...prevState,
+      currentStep: step > -1 + stepCount ? step - stepCount : step,
+    };
   });
 }
 

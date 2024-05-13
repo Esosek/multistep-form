@@ -4,9 +4,10 @@
   export let type;
   export let placeholder;
   export let hasError = false;
+  export let classes = '';
 </script>
 
-<div class={'my-3'}>
+<div class={`my-3 ${classes}`}>
   <div class="flex justify-between">
     <label for={id} class="text-sm">{label}</label>
     {#if hasError}

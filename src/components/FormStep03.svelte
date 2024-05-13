@@ -14,7 +14,7 @@
     title="Pick add-ons"
     subtext="Add-ons help enhance your gaming experience."
   />
-  <ul class="flex flex-col gap-3 my-6">
+  <ul class="flex flex-col gap-3 my-6 flex-grow">
     {#each Object.entries(addOns) as [key, value]}
       <li>
         <CheckboxSelect

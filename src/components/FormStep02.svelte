@@ -6,10 +6,6 @@
   import ButtonSelect from './ButtonSelect.svelte';
   import Toggle from './Toggle.svelte';
   import plans from '../data/plans';
-
-  function selectPlan(index) {
-    selectedPlanIndex = index;
-  }
 </script>
 
 <div class="sm:flex sm:flex-col sm:h-full">
@@ -34,7 +30,7 @@
     {/each}
   </ul>
 
-  <div>
+  <div class="flex-grow">
     <div
       class="flex justify-center items-center gap-6 bg-magnolia py-3 rounded-lg"
     >

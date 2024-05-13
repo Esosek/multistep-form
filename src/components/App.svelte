@@ -5,6 +5,7 @@
   import FormStep02 from './FormStep02.svelte';
   import FormStep03 from './FormStep03.svelte';
   import FormStep04 from './FormStep04.svelte';
+  import FormStep05 from './FormStep05.svelte';
 
   const steps = ['your info', 'select plan', 'add-ons', 'summary'];
 </script>
@@ -18,5 +19,7 @@
     <FormStep03 />
   {:else if $formData.currentStep === 3}
     <FormStep04 />
+  {:else if $formData.currentStep === 4}
+    <FormStep05 />
   {/if}
 </FormLayout>

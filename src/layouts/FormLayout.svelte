@@ -57,11 +57,6 @@
     background-size: contain;
   }
 
-  /* Move navigation buttons bottom */
-  :global(.content-wrap > :only-child > *:nth-last-child(2)) {
-    flex-grow: 1;
-  }
-
   @media only screen and (min-width: 640px) {
     main {
       background-image: none;

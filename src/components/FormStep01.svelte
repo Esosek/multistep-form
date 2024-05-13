@@ -50,6 +50,7 @@
     placeholder="e.g. +1 234 567 890"
     type="tel"
     hasError={formErrors.phone}
+    classes="flex-grow"
   />
   <FormNavigation justifyContent="justify-end">
     <FormButton type="submit" />

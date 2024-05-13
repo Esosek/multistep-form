@@ -47,7 +47,7 @@
       {/each}
     {/if}
   </ul>
-  <div class="flex justify-between m-6">
+  <div class="flex justify-between m-6 flex-grow">
     <p class="text-cool-gray">{`Total (per ${isYearly ? 'year' : 'month'})`}</p>
     <p class="text-purplish-blue font-bold">
       {`$${getTotalPrice()}/${isYearly ? 'yr' : 'mo'}`}

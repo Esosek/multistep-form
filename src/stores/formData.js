@@ -4,6 +4,11 @@ import addOns from '../data/addons';
 
 const formData = writable({
   currentStep: 0,
+  user: {
+    name: '',
+    email: '',
+    phone: '',
+  },
   selectedPlan: Plan.Arcade,
   isYearly: false,
   addons: [],
@@ -26,6 +31,12 @@ export function getTotalPrice() {
     }
   }
   return totalPrice;
+}
+
+function setUserData(userData) {
+  formData.update((prevState) => {
+    return { ...prevState, user: userData };
+  });
 }
 
 function nextStep() {
@@ -88,6 +99,7 @@ function submitForm() {
 
 export default {
   subscribe: formData.subscribe,
+  setUserData,
   nextStep,
   previousStep,
   selectPlan,

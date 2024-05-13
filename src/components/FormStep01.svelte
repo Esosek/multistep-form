@@ -5,7 +5,13 @@
   import FormHeader from './FormHeader.svelte';
   import formData from '../stores/formData';
 
-  const formErrors = {
+  const userData = $formData.user;
+
+  let name = userData.name;
+  let email = userData.email;
+  let phone = userData.phone;
+
+  let formErrors = {
     name: false,
     email: false,
     phone: false,
@@ -13,15 +19,34 @@
 
   function submitForm(e) {
     e.preventDefault();
-    console.log('form submitted!');
     if (isFormValid()) {
+      formData.setUserData({ name, email, phone });
       formData.nextStep();
     }
   }
 
   function isFormValid() {
-    //TODO: Form validation
-    return true;
+    formErrors = {
+      name: !isNameValid(),
+      email: !isEmailValid(),
+      phone: !isPhoneValid(),
+    };
+
+    return !Object.values(formErrors).includes(true);
+  }
+
+  function isNameValid() {
+    return name.trim().length > 2;
+  }
+
+  function isEmailValid() {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  function isPhoneValid() {
+    const phoneRegex = /^\+?[0-9]{8,}$/;
+    return phoneRegex.test(phone);
   }
 </script>
 
@@ -35,21 +60,39 @@
     label="Name"
     placeholder="e.g. Thomas A. Anderson"
     type="text"
+    value={name}
+    onChange={(e) => {
+      name = e.target.value;
+      formErrors.name = false;
+    }}
     hasError={formErrors.name}
+    errorMessage="Name must be at least 2 characters long"
   />
   <FormInput
     id="email"
     label="Email Address"
     placeholder="e.g. neo@sion.mx"
     type="email"
+    value={email}
+    onChange={(e) => {
+      email = e.target.value;
+      formErrors.email = false;
+    }}
     hasError={formErrors.email}
+    errorMessage="Please enter a valid email"
   />
   <FormInput
     id="phone"
     label="Phone Number"
     placeholder="e.g. +1 234 567 890"
     type="tel"
+    value={phone}
+    onChange={(e) => {
+      phone = e.target.value;
+      formErrors.phone = false;
+    }}
     hasError={formErrors.phone}
+    errorMessage="Please enter a valid phone number"
     classes="flex-grow"
   />
   <FormNavigation justifyContent="justify-end">

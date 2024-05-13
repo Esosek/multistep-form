@@ -24,7 +24,6 @@ export function getTotalPrice() {
       totalPrice += parseInt(addOns[addon].monthlyPrice);
     }
   }
-  console.log(totalPrice);
   return totalPrice;
 }
 

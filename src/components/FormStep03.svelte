@@ -18,6 +18,7 @@
     {#each Object.entries(addOns) as [key, value]}
       <li>
         <CheckboxSelect
+          value={$formData.addons.includes(key)}
           title={key}
           description={value.description}
           price={$formData.isYearly

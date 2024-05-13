@@ -1,7 +1,8 @@
 <script>
-  export let title;
-  export let description;
-  export let price;
+  export let title = 'title';
+  export let description = 'description';
+  export let price = 0;
+  export let value = false;
   export let onChange = () => {};
 </script>
 
@@ -13,6 +14,7 @@
     <input
       on:change={onChange}
       type="checkbox"
+      checked={value}
       name={title}
       id={`${title}-checkbox`}
       class="cursor-pointer accent-purplish-blue size-5"

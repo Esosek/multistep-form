@@ -52,7 +52,7 @@
 
 <style>
   main {
-    background-image: url('/assets/images/bg-sidebar-mobile.svg');
+    background-image: url('/multistep-form/assets/images/bg-sidebar-mobile.svg');
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -62,7 +62,7 @@
       background-image: none;
     }
     ul {
-      background-image: url('/assets/images/bg-sidebar-desktop.svg');
+      background-image: url('/multistep-form/assets/images/bg-sidebar-desktop.svg');
       background-repeat: no-repeat;
     }
   }

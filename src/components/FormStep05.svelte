@@ -1,8 +1,12 @@
+<script>
+  import thanksIcon from '/public/assets/images/icon-thank-you.svg';
+</script>
+
 <div
   class="flex flex-col h-full items-center justify-center gap-4 py-10 px-1 leading-6 sm:px-10"
 >
   <img
-    src="/assets/images/icon-thank-you.svg"
+    src={thanksIcon.src}
     alt="Thanks icon"
     class="max-h-16 sm:max-h-[80px] my-4"
   />

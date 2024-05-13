@@ -66,7 +66,6 @@
       formErrors.name = false;
     }}
     hasError={formErrors.name}
-    errorMessage="Name must be at least 2 characters long"
   />
   <FormInput
     id="email"
@@ -79,7 +78,6 @@
       formErrors.email = false;
     }}
     hasError={formErrors.email}
-    errorMessage="Please enter a valid email"
   />
   <FormInput
     id="phone"
@@ -92,7 +90,6 @@
       formErrors.phone = false;
     }}
     hasError={formErrors.phone}
-    errorMessage="Please enter a valid phone number"
     classes="flex-grow"
   />
   <FormNavigation justifyContent="justify-end">

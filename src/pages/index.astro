@@ -1,20 +1,18 @@
 ---
 import App from '../components/App.svelte';
 import '../styles/global.css';
+import favicon from '../../public/favicon.svg';
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/assets/images/favicon-32x32.png"
-    />
+    <link rel="icon" type="image/svg+xml" href={favicon.src} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Multistep form</title>
   </head>
   <App client:only="svelte" />
+
 
 </html>

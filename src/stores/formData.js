@@ -1,12 +1,32 @@
-import { writable } from 'svelte/store';
-import { Plan } from '../data/plans';
+import { writable, get } from 'svelte/store';
+import plans, { Plan } from '../data/plans';
+import addOns from '../data/addons';
 
 const formData = writable({
-  currentStep: 3,
+  currentStep: 0,
   selectedPlan: Plan.Arcade,
   isYearly: false,
   addons: [],
 });
+
+export function getTotalPrice() {
+  let totalPrice = 0;
+  let currentFormData = get(formData);
+
+  if (currentFormData.isYearly) {
+    totalPrice += parseInt(plans[currentFormData.selectedPlan].yearlyPrice);
+    for (const addon of currentFormData.addons) {
+      totalPrice += parseInt(addOns[addon].yearlyPrice);
+    }
+  } else {
+    totalPrice += parseInt(plans[currentFormData.selectedPlan].monthlyPrice);
+    for (const addon of currentFormData.addons) {
+      totalPrice += parseInt(addOns[addon].monthlyPrice);
+    }
+  }
+  console.log(totalPrice);
+  return totalPrice;
+}
 
 function nextStep() {
   formData.update((prevState) => {
@@ -29,7 +49,10 @@ function selectPlan(plan) {
 
 function toggleYearly() {
   formData.update((prevState) => {
-    return { ...prevState, isYearly: !prevState.isYearly };
+    return {
+      ...prevState,
+      isYearly: !prevState.isYearly,
+    };
   });
 }
 
@@ -44,7 +67,10 @@ function toggleAddon(addon) {
     } else {
       updatedAddons.push(addon);
     }
-    return { ...prevState, addons: [...updatedAddons] };
+    return {
+      ...prevState,
+      addons: [...updatedAddons],
+    };
   });
 }
 

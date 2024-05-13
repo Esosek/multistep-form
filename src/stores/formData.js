@@ -7,6 +7,7 @@ const formData = writable({
   selectedPlan: Plan.Arcade,
   isYearly: false,
   addons: [],
+  isSubmitted: false,
 });
 
 export function getTotalPrice() {
@@ -76,6 +77,15 @@ function toggleAddon(addon) {
   });
 }
 
+function submitForm() {
+  formData.update((prevState) => {
+    return {
+      ...prevState,
+      isSubmitted: true,
+    };
+  });
+}
+
 export default {
   subscribe: formData.subscribe,
   nextStep,
@@ -83,4 +93,5 @@ export default {
   selectPlan,
   toggleYearly,
   toggleAddon,
+  submitForm,
 };

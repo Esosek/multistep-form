@@ -17,9 +17,9 @@
     <FormStep02 />
   {:else if $formData.currentStep === 2}
     <FormStep03 />
-  {:else if $formData.currentStep === 3}
+  {:else if $formData.currentStep === 3 && !$formData.isSubmitted}
     <FormStep04 />
-  {:else if $formData.currentStep === 4}
+  {:else if $formData.isSubmitted}
     <FormStep05 />
   {/if}
 </FormLayout>

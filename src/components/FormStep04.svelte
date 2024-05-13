@@ -6,6 +6,7 @@
   import addons from '../data/addons';
   import plans from '../data/plans';
 
+  let isSubmitted = false;
   let { isYearly, selectedPlan, addons: selectedAddons } = $formData;
 
   let selectedPlanText = `${selectedPlan} (${isYearly ? 'Yearly' : 'Monthly'})`;
@@ -13,6 +14,10 @@
 
   function changePlan() {
     formData.previousStep(2);
+  }
+
+  function submitForm() {
+    formData.submitForm();
   }
 </script>
 
@@ -63,7 +68,7 @@
     <FormButton
       bgColor="bg-purplish-blue"
       label="Confirm"
-      onPress={formData.nextStep}
+      onPress={submitForm}
     />
   </FormNavigation>
 </div>

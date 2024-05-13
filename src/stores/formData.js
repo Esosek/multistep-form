@@ -38,7 +38,7 @@ function previousStep(stepCount = 1) {
     const step = prevState.currentStep;
     return {
       ...prevState,
-      currentStep: step > -1 + stepCount ? step - stepCount : step,
+      currentStep: step > 0 ? step - stepCount : step,
     };
   });
 }

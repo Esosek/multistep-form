@@ -58,7 +58,7 @@
     <FormButton
       label="Go Back"
       isPrimary={false}
-      onPress={formData.previousStep}
+      onPress={() => formData.previousStep()}
     />
     <FormButton
       bgColor="bg-purplish-blue"

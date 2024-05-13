@@ -39,7 +39,7 @@
       class="flex justify-center items-center gap-6 bg-magnolia py-3 rounded-lg"
     >
       <p class={$formData.isYearly ? 'text-cool-gray' : ''}>Monthly</p>
-      <Toggle onToggle={formData.toggleYearly} />
+      <Toggle value={$formData.isYearly} onToggle={formData.toggleYearly} />
       <p class={$formData.isYearly ? '' : 'text-cool-gray'}>Yearly</p>
     </div>
   </div>
